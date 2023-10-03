@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="root">
+        <!-- <h1 class="site_name">TokoPakedi</h1> -->
+        <div class="site_header">
+            <div class="logo_container">
+                <img class="logo" src="img/logo.png" alt="Tokopakedi.com" />
+            </div>
+            <div class="searchbar">
+                <form>
+                    <input name="query" class="search" type="search" placeholder="Pinjam dulu seratus..."/>
+                    <button>Cari</button>
+                </form>
+            </div>
+
+            <div class="auth">
+                <button>Login Donk</button>
+            </div>
+        </div>
+        <!-- <span>Beli 1 Bayar 5</span> -->
+
+        <h2>Product Populer</h2>
+        <hr />
+        <div>
+        <div class="product_container">
+            
+        </div>
+
+        </div>
+    </div>
+    <script>
+        const h = "text/html"
+        let parser = new DOMParser();
+
+        let data = [...Array(10).keys()];
+
+
+        data.forEach((x) => {
+            let productStr = `
+            <div class="product_detail">
+                    <div class="product_image">
+                        <img src="https://source.unsplash.com/random/200x100?q=1" />
+                    </div>
+                    <b>Product Name</b>
+                    <div class="product_price">
+                        <span>Rp.100.000</span>
+                    </div>
+                    <div class="review">
+                        <span>100 Terjual (5.0)</span>
+                    </div>
+                </div>
+            `;
+            let el = parser.parseFromString(productStr, h)
+
+            // console.log(el.body.firstChild);
+
+            let root = document.querySelector("div.product_container");
+            root.appendChild(el.body.firstChild)
+        });
+
+
+    </script>
+</body>
+</html>
